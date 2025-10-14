@@ -5,9 +5,10 @@
 }
 
 :root {
-    --accent-color: #800000;
+    --accent-color: rebeccapurple;
     --main-bg-color: aliceblue;
-    --border-color: rebeccapurple;
+    --box-bg-color: white;
+    --text-color: black;
 }
 
 html {
@@ -17,30 +18,33 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    width: 90%;
-    margin: 0 auto;
-    border: 5px double var(--border-color);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
 
-a:hover, a:focus {
-    font-style: italic;
-    color: var(--accent-color);
+main {
+    background-color: var(--box-bg-color);
+    width: 90%;
+    padding: 20px;
+    border: 5px double var(--accent-color);
 }
 
 h1 {
     font-size: 150%;
-    color: var(--border-color);
-    margin: 20px 0;
+    color: var(--accent-color);
+    margin-bottom: 15px;
 }
 
 h2 {
     font-size: 125%;
-    color: var(--accent-color);
+    color: var(--text-color);
     margin: 18px 0;
 }
 
 h3 {
     font-size: 115%;
+    color: var(--text-color);
     margin: 16px 0;
     clear: both;
 }
@@ -48,13 +52,21 @@ h3 {
 p {
     margin: 10px 0;
     line-height: 1.5;
+    color: var(--text-color);
 }
 
 blockquote {
     margin: 15px 20px;
     padding: 10px 15px;
-    border-left: 3px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
     background-color: #f4f4f4;
+    color: var(--text-color);
+}
+
+cite {
+    color: var(--accent-color);
+    font-style: normal;
+    font-weight: bold;
 }
 
 ul {
@@ -64,32 +76,7 @@ ul {
 
 li {
     margin: 5px 0;
-}
-
-cite {
-    color: var(--border-color);
-    font-style: normal;
-    font-weight: bold;
-}
-
-header h2 {
-    font-size: 175%;
-    text-indent: 30px;
-}
-
-header h3 {
-    font-size: 130%;
-    font-style: italic;
-    text-indent: 30px;
-}
-
-header img {
-    float: left;
-}
-
-main {
-    clear: left;
-    padding: 20px;
+    color: var(--text-color);
 }
 
 img {
@@ -98,16 +85,12 @@ img {
 }
 
 footer {
-    border-top: 5px solid var(--border-color);
+    margin-top: 20px;
+    text-align: center;
 }
 
 footer p {
-    text-align: center;
-    font-size: 90%;
     font-weight: bold;
-    margin: 10px 0;
-}
-
-.large {
-    font-size: 125%;
+    margin: 5px 0;
+    color: var(--text-color);
 }
