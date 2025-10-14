@@ -21,7 +21,9 @@ body {
     font-size: 100%;
     width: 90%;
     margin: 0 auto;
-    border: 5px double var(--border-color);
+    border: 6px double var(--border-color); /* دو خطه و فاصله خطوط کمی بیشتر */
+    background-color: var(--box-bg-color); /* کل box سفید */
+    padding-bottom: 0; /* جلوگیری از فضای اضافی زیر footer */
 }
 
 a:hover, a:focus {
@@ -104,19 +106,18 @@ img {
 
 footer {
     border-top: 5px solid var(--border-color);
-    padding-top: 10px;
-    width: 90%;      
-    margin: 0 auto;  
+    padding: 10px 0; /* فاصله داخلی مناسب */
     background-color: var(--box-bg-color);
+    width: calc(100% - 10px); /* هم عرض box بدون اینکه خارج بیاد */
+    margin: 0 auto;
 }
 
 footer p {
     text-align: center;
     font-size: 90%;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 5px 0;
 }
-
 
 .large {
     font-size: 125%;
