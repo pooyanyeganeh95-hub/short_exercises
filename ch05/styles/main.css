@@ -1,8 +1,10 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 :root {
     --accent-color: rebeccapurple;
@@ -10,6 +12,7 @@
     --box-bg-color: white;
     --text-color: black;
 }
+
 
 html {
     background-color: var(--main-bg-color);
@@ -23,11 +26,13 @@ body {
     padding: 20px;
 }
 
+
 main {
     background-color: var(--box-bg-color);
     width: 90%;
     padding: 20px;
     border: 5px double var(--accent-color);
+    overflow: hidden; /* clear float */
 }
 
 h1 {
@@ -49,25 +54,27 @@ h3 {
     clear: both;
 }
 
+
 p {
     margin: 10px 0;
     line-height: 1.5;
     color: var(--text-color);
 }
 
+
 blockquote {
     margin: 15px 20px;
     padding: 10px 15px;
     border-left: 3px solid var(--accent-color);
-    background-color: #f4f4f4;
-    color: var(--text-color);
 }
+
 
 cite {
     color: var(--accent-color);
     font-style: normal;
     font-weight: bold;
 }
+
 
 ul {
     margin: 10px 0 10px 20px;
@@ -79,18 +86,29 @@ li {
     color: var(--text-color);
 }
 
+
 img {
     float: left;
     margin: 0 15px 15px 0;
 }
 
+
 footer {
+    border-top: 5px solid var(--accent-color);
+    padding-top: 10px;
     margin-top: 20px;
+    width: 100%;
     text-align: center;
 }
 
 footer p {
+    font-size: 90%;
     font-weight: bold;
     margin: 5px 0;
     color: var(--text-color);
+}
+
+
+.large {
+    font-size: 125%;
 }
