@@ -1,27 +1,28 @@
 /* variables */
 :root {
-	--primary-color: #931420;
-	--accent-color: #f6bb73;
-	--light-accent: #fffded;
-	--light: white;
-	--dark: black;
+    --primary-color: #931420;
+    --accent-color: #f6bb73;
+    --light-accent: #fffded;
+    --light: white;
+    --dark: black;
 }
 
 /* reset */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* the default styles for the elements */
 body {
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     width: 80%;
     margin: auto;
     border: 3px solid var(--primary-color);
 }
+
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article { padding-bottom: .5em; }
 h1 { font-size: 150%; }
@@ -31,63 +32,80 @@ a:focus, a:hover { font-style: italic; }
 
 /* the styles for the header */
 header {
-	border-bottom: 3px solid var(--primary-color);
-	background-image: linear-gradient(30deg, 
-		var(--accent-color) 0%, 
-		var(--light-accent) 25%, 
-		var(--light) 50%, 
-		var(--light-accent) 75%, 
-		var(--accent-color) 100%);
-	& h2 {
-		font-size: 175%;
-		color: var(--primary-color);
-		padding-bottom: 0;
-	}
-	& h3 {
-		font-size: 130%;
-		font-style: italic;
-	}
-	& img {
-		float: left;
-		margin: 0 30px;
-	}
+    border-bottom: 3px solid var(--primary-color);
+    background-image: linear-gradient(30deg, 
+        var(--accent-color) 0%, 
+        var(--light-accent) 25%, 
+        var(--light) 50%, 
+        var(--light-accent) 75%, 
+        var(--accent-color) 100%);
+}
+
+header h2 {
+    font-size: 175%;
+    color: var(--primary-color);
+    padding-bottom: 0;
+}
+
+header h3 {
+    font-size: 130%;
+    font-style: italic;
+}
+
+header img {
+    float: left;
+    margin: 0 30px 0 0;
 }
 
 /* the styles for the main element */
 main {
-	clear: left;
+    display: flex;               /* ایجاد دو ستون */
+    flex-direction: row-reverse; /* سایدبار سمت چپ، مقاله سمت راست */
+    gap: 1em;                    /* فاصله بین ستون‌ها */
+    clear: left;
 }
 
-/* the styles for the section */
+/* section (مقاله) سمت راست */
 section {
-	& h1 {
-		color: var(--primary-color);
-	}
+    flex: 2;                     /* بخش اصلی دو برابر سایدبار */
 }
 
-/* the styles for the article */
-article {
-	& img {
-		border: 1px solid var(--dark);
-	}
+section h1 {
+    color: var(--primary-color);
 }
 
-/* the styles for the aside */
+/* article */
+article img {
+    float: left;                  /* شناورسازی تصویر مقاله به چپ */
+    margin: 0 1em 1em 0;          /* فاصله اطراف تصویر */
+    max-width: 100%;              /* تصویر مقیاس پذیر */
+    height: auto;
+    border: 1px solid var(--dark);
+}
+
+/* aside (سایدبار سمت چپ) */
 aside {
-	& h2 {
-		color: var(--primary-color);
-	}
-	& img {
-		margin-bottom: .9em;
-	}
+    flex: 1;                       /* عرض سایدبار */
+}
+
+aside h2 {
+    color: var(--primary-color);
+}
+
+aside img {
+    margin-bottom: .9em;
+    max-width: 100%;              /* تصاویر سایدبار مقیاس پذیر */
+    height: auto;
+    display: block;
 }
 
 /* the styles for the footer */
 footer {
-	background-color: var(--primary-color);
-	& p {
-		text-align: center;
-		color: white;
-		padding-bottom: 0; 
-	}
+    background-color: var(--primary-color);
+}
+
+footer p {
+    text-align: center;
+    color: white;
+    padding-bottom: 0; 
 }
