@@ -56,7 +56,7 @@ main {
 }
 
 section {
-    flex: 2.2;
+    flex: 2.4;
 }
 
 section h1 {
@@ -72,7 +72,7 @@ article img {
 }
 
 aside {
-    flex: 0.8;
+    flex: 0.6;
 }
 
 aside h2 {
