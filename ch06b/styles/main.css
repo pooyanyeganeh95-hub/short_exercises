@@ -1,115 +1,123 @@
-/* variables */
 :root {
-	--primary-color: #931420;
-	--accent-color: #f6bb73;
-	--light-accent: #fffded;
-	--light: white;
-	--dark: black;
+    --primary-color: #931420;
+    --accent-color: #f6bb73;
+    --light-accent: #fffded;
+    --light: white;
+    --dark: black;
 }
 
-/* reset */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* the default styles for the elements */
 body {
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     width: 80%;
     margin: auto;
     border: 3px solid var(--primary-color);
 }
+
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
 ul { margin-left: 1em; }
 h1 { font-size: 150%; }
 h2 { font-size: 120%; }
 h3 { font-size: 110%; }
-a:focus, a:hover {
-	font-style: italic;
-}
+a:focus, a:hover { font-style: italic; }
 
-/* the styles for the header */
 header {
-	border-bottom: 3px solid var(--primary-color);
-	background-image: linear-gradient(30deg, 
-		var(--accent-color) 0%, 
-		var(--light-accent) 25%, 
-		var(--light) 50%, 
-		var(--light-accent) 75%, 
-		var(--accent-color) 100%);
-	& h2 {
-		font-size: 175%;
-		color: var(--primary-color);
-		padding-bottom: 0;
-	}
-	& h3 {
-		font-size: 130%;
-		font-style: italic;
-	}
-	& img {
-		float: left;
-		margin: 0 30px;
-		width: clamp(40px, 15%, 66px);
-	}
+    border-bottom: 3px solid var(--primary-color);
+    background-image: linear-gradient(30deg, var(--accent-color) 0%, var(--light-accent) 25%, var(--light) 50%, var(--light-accent) 75%, var(--accent-color) 100%);
 }
 
-/* the styles for the main element */
+header h2 {
+    font-size: 175%;
+    color: var(--primary-color);
+    padding-bottom: 0;
+}
+
+header h3 {
+    font-size: 130%;
+    font-style: italic;
+}
+
+header img {
+    float: left;
+    margin: 0 30px 0 0;
+    width: clamp(40px, 15%, 66px);
+}
+
 main {
-	clear: left;
+    display: flex;
+    gap: 1em;
+    clear: left;
 }
 
-/* the styles for the section */
+aside:first-of-type {
+    flex: 0.8;
+}
+
 section {
-	& h1 {
-		padding-top: .5em;
-	}
-	& h2 {
-		color: var(--primary-color);
-	}
-	& article + h2 {
-		clear: right;
-		border-top: 3px solid var(--primary-color);
-		padding-top: .5em;
-	}
-	& blockquote {
-		font-style: italic;
-		margin-left: 2em;
-	}
+    flex: 1.6;
 }
 
-/* the styles for the article */
+aside:last-of-type {
+    flex: 0.8;
+}
+
+section h1 {
+    padding-top: .5em;
+    color: var(--primary-color);
+}
+
+section h2 {
+    color: var(--primary-color);
+}
+
+section article + h2 {
+    clear: right;
+    border-top: 3px solid var(--primary-color);
+    padding-top: .5em;
+}
+
+section blockquote {
+    font-style: italic;
+    margin-left: 2em;
+}
+
 article {
-	border-top: 3px solid var(--primary-color);
-	padding-top: .5em;
-	margin-bottom: .5em;
-	& img {
-		float: right;
-		margin: .25em 0 1em 1em;
-		border: 1px solid var(--dark);
-		width: min(100%, 225px);
-	}
+    border-top: 3px solid var(--primary-color);
+    padding-top: .5em;
+    margin-bottom: .5em;
 }
 
-/* the styles for the aside */
-aside {
-	& h2 {
-		color: var(--primary-color);
-	}
-	& img {
-		margin-bottom: .9em;
-	}
+article img {
+    float: right;
+    margin: .25em 0 1em 1em;
+    border: 1px solid var(--dark);
+    width: min(100%, 225px);
 }
 
-/* the styles for the footer */
+aside h2 {
+    color: var(--primary-color);
+}
+
+aside img {
+    margin-bottom: .9em;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 footer {
-	background-color: var(--primary-color);
-	& p {
-		text-align: center;
-		color: white;
-		padding-bottom: 0; 
-	}
+    background-color: var(--primary-color);
+}
+
+footer p {
+    text-align: center;
+    color: white;
+    padding-bottom: 0;
 }
