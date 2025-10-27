@@ -54,6 +54,75 @@ header {
 		width: clamp(40px, 15%, 66px);
 	}
 }
+/* the styles for the navigation bar */
+.navbar {
+	background-color: var(--primary-color);
+}
+
+.menu {
+	display: flex;
+	flex-wrap: wrap; /* باعث میشه در صفحه کوچک بیفتن زیر هم */
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li {
+	position: relative; /* برای submenu لازمه */
+}
+
+.menu a {
+	display: block;
+	padding: 1em;
+	color: white;
+	text-decoration: none;
+	font-weight: normal;
+	transition: color 0.3s ease;
+}
+
+/* hover state */
+.menu a:hover {
+	font-style: italic;
+}
+
+/* current page */
+.menu a.current {
+	font-weight: bold;
+	color: var(--accent-color);
+}
+.menu a.current:hover {
+	color: var(--accent-color);
+	font-style: normal;
+}
+
+/* submenu hidden by default */
+.submenu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: var(--primary-color);
+	list-style-type: none;
+	min-width: 200px;
+	z-index: 10;
+	padding: 0;
+}
+
+/* show submenu on hover */
+.menu li:hover .submenu {
+	display: block;
+}
+
+/* submenu links */
+.submenu a {
+	padding: 0.75em 1em;
+	white-space: nowrap;
+}
+
+.submenu a:hover {
+	background-color: var(--accent-color);
+	color: var(--dark);
+}
 
 /* the styles for the main element */
 main {
