@@ -57,18 +57,19 @@ header {
 /* the styles for the navigation bar */
 .navbar {
 	background-color: var(--primary-color);
+	width: 100%
 }
 
 .menu {
 	display: flex;
-	flex-wrap: wrap; /* باعث میشه در صفحه کوچک بیفتن زیر هم */
+	flex-wrap: wrap; 
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
 .menu li {
-	position: relative; /* برای submenu لازمه */
+	position: relative; 
 }
 
 .menu a {
@@ -82,7 +83,7 @@ header {
 
 /* hover state */
 .menu a:hover {
-	font-style: italic;
+	color: var(--accent-color);
 }
 
 /* current page */
