@@ -63,7 +63,7 @@ header img {
 	background-color: var(--primary-color);
 	width: calc(100% + 6px);
 	margin-left: -18px;       
-	margin-right: -18px;      
+	margin-right: -30px;      
 	margin-top: -3px;        
 	padding: 0;
 	position: relative;
