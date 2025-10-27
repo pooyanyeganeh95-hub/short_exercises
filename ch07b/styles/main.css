@@ -60,10 +60,14 @@ header img {
 
 /* navbar */
 .navbar {
-	background-color: var(--primary-color);
-	width: 100vw;             
-	margin-left: calc(-10vw);  
-	margin-top: -3px;          
+		background-color: var(--primary-color);
+	width: 100%;         
+	margin: 0;            
+	padding: 0;          
+	border-top: none;
+	border-bottom: none;
+	position: relative;
+	top: -3px;        
 }
 
 .menu {
