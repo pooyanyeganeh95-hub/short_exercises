@@ -115,8 +115,8 @@ aside nav a {
 }
 
 aside nav a:hover {
-	background-color: var(--accent-color);
-	color: var(--dark);
+	color: var(--accent-color);
+	background-color: transparent;
 }
 
 
@@ -128,8 +128,8 @@ aside nav a.current {
 }
 
 aside nav a.current:hover {
+	background-color: var(--accent-color);
 	color: var(--accent-color);
-	background-color: transparent
 }
 
 /* the styles for the footer */
