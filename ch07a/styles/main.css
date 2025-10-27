@@ -91,6 +91,46 @@ aside {
 		margin-bottom: .9em;
 	}
 }
+/* navigation menu in sidebar */
+aside nav {
+	background-color: var(--primary-color); 
+	padding: 0;
+	margin-top: 1em;
+}
+
+aside nav ul {
+	list-style-type: none;
+}
+
+aside nav li {
+	border-bottom: 1px solid var(--light);
+}
+
+aside nav a {
+	display: block;           
+	padding: .75em;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+
+aside nav a:hover {
+	background-color: var(--accent-color);
+	color: var(--dark);
+}
+
+
+aside nav a.current {
+	background-color: var(--accent-color);
+	color: var(--dark);
+	font-style: normal; 
+	font-weight: bold;
+}
+
+aside nav a.current:hover {
+	background-color: var(--accent-color);
+	color: var(--dark);
+}
 
 /* the styles for the footer */
 footer {
