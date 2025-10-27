@@ -14,7 +14,7 @@
 	box-sizing: border-box;
 }
 
-/* the default styles for the elements */
+/* default styles */
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -22,6 +22,7 @@ body {
     margin: auto;
     border: 3px solid var(--primary-color);
 }
+
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
 ul { margin-left: 1em; }
@@ -30,7 +31,7 @@ h2 { font-size: 120%; }
 h3 { font-size: 110%; }
 a:focus, a:hover { font-style: italic; }
 
-/* the styles for the header */
+/* header */
 header {
 	border-bottom: 3px solid var(--primary-color);
 	background-image: linear-gradient(30deg, 
@@ -39,51 +40,58 @@ header {
 		var(--light) 50%, 
 		var(--light-accent) 75%, 
 		var(--accent-color) 100%);
-	& h2 {
-		font-size: 175%;
-		color: var(--primary-color);
-		padding-bottom: 0;
-	}
-	& h3 {
-		font-size: 130%;
-		font-style: italic;
-	}
-	& img {
-		float: left;
-		margin: 0 30px;
-		width: clamp(40px, 15%, 66px);
-	}
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
-/* the styles for the navigation bar */
+header h2 {
+	font-size: 175%;
+	color: var(--primary-color);
+	padding-bottom: 0;
+}
+header h3 {
+	font-size: 130%;
+	font-style: italic;
+}
+header img {
+	float: left;
+	margin: 0 30px;
+	width: clamp(40px, 15%, 66px);
+}
+
+/* navbar */
 .navbar {
 	background-color: var(--primary-color);
-	width: 100%
+	width: 100vw;             
+	margin-left: calc(-10vw);  
+	margin-top: -3px;          
 }
 
 .menu {
 	display: flex;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+	justify-content: center; 
 }
 
 .menu li {
-	position: relative; 
+	position: relative;
 }
 
 .menu a {
 	display: block;
-	padding: 1em;
+	padding: 1em 1.5em;
 	color: white;
 	text-decoration: none;
 	font-weight: normal;
-	transition: color 0.3s ease;
+	transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* hover state */
 .menu a:hover {
 	color: var(--accent-color);
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* current page */
@@ -94,9 +102,10 @@ header {
 .menu a.current:hover {
 	color: var(--accent-color);
 	font-style: normal;
+	background-color: transparent;
 }
 
-/* submenu hidden by default */
+/* submenu */
 .submenu {
 	display: none;
 	position: absolute;
@@ -109,12 +118,10 @@ header {
 	padding: 0;
 }
 
-/* show submenu on hover */
 .menu li:hover .submenu {
 	display: block;
 }
 
-/* submenu links */
 .submenu a {
 	padding: 0.75em 1em;
 	white-space: nowrap;
@@ -125,59 +132,59 @@ header {
 	color: var(--dark);
 }
 
-/* the styles for the main element */
+/* main */
 main {
 	clear: left;
 	display: flex;
 }
 
-/* the styles for the section */
+/* section */
 section {
 	flex-basis: 75%;
-	& h1 {
-		color: var(--primary-color);
-	}
-	& article + h2 {
-		clear: left;
-		color: var(--primary-color);
-		border-top: 3px solid var(--primary-color);
-		padding-top: .5em;
-	}
+}
+section h1 {
+	color: var(--primary-color);
+}
+section article + h2 {
+	clear: left;
+	color: var(--primary-color);
+	border-top: 3px solid var(--primary-color);
+	padding-top: .5em;
 }
 
-/* the styles for the article */
+/* article */
 article {
 	padding-top: .5em;
 	margin-bottom: .5em;
-	& img {
-		float: left;
-		margin: .25em 1em 1em 0;
-		border: 1px solid var(--dark);
-		width: min(100%, 225px);
-	}
+}
+article img {
+	float: left;
+	margin: .25em 1em 1em 0;
+	border: 1px solid var(--dark);
+	width: min(100%, 225px);
 }
 
-/* the styles for the aside */
+/* aside */
 aside {
 	flex-basis: 25%;
-	& h2 {
-		color: var(--primary-color);
-	}
-	& img {
-		margin-bottom: .9em;
-	}
-	& blockquote {
-		font-style: italic;
-		margin-left: .5em;
-	}
+}
+aside h2 {
+	color: var(--primary-color);
+}
+aside img {
+	margin-bottom: .9em;
+}
+aside blockquote {
+	font-style: italic;
+	margin-left: .5em;
 }
 
-/* the styles for the footer */
+/* footer */
 footer {
 	background-color: var(--primary-color);
-	& p {
-		text-align: center;
-		color: white;
-		padding-bottom: 0; 
-	}
+}
+footer p {
+	text-align: center;
+	color: white;
+	padding-bottom: 0;
 }
