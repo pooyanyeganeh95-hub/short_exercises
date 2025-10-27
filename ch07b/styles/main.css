@@ -25,7 +25,7 @@ body {
 
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
-ul { margin-left: 1em; }
+ul { margin-left: 0; padding-left: 0; }
 h1 { font-size: 150%; }
 h2 { font-size: 120%; }
 h3 { font-size: 110%; }
@@ -61,21 +61,16 @@ header img {
 /* navbar */
 .navbar {
 	background-color: var(--primary-color);
-	width: calc(100% + 6px);
-	margin-left: -18px;       
-	margin-right: 50px;      
-	margin-top: -3px;        
+	width: 100%;
+	margin: 0;
 	padding: 0;
-	position: relative;
-	z-index: 5;
 }
 .menu {
 	display: flex;
-	flex-wrap: wrap;
+	justify-content: space-between; /* پخش مساوی آیتم‌ها */
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	justify-content: space-evenly; 
 }
 
 .menu li {
