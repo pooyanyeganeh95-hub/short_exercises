@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-/* default styles */
+/* the default styles for the elements */
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
@@ -35,50 +35,64 @@ ul {
   margin-left: 1em;
 }
 
-h1 { font-size: 150%; }
-h2 { font-size: 120%; }
-h3 { font-size: 110%; }
+h1 {
+  font-size: 150%;
+}
 
-a:focus, a:hover { font-style: italic; }
+h2 {
+  font-size: 120%;
+}
 
-/* header */
+h3 {
+  font-size: 110%;
+}
+
+a:focus, a:hover {
+  font-style: italic;
+}
+
+/* the styles for the header */
 header {
   border-bottom: 3px solid var(--primary-color);
   background-image: linear-gradient(30deg, var(--accent-color) 0%, var(--light-accent) 25%, var(--light) 50%, var(--light-accent) 75%, var(--accent-color) 100%);
   text-align: center;
 }
+
 header h2 {
   font-size: 175%;
   color: var(--primary-color);
   padding-bottom: 0;
 }
+
 header h3 {
   font-size: 130%;
   font-style: italic;
 }
+
 header img {
   float: left;
   margin: 0 30px;
   width: clamp(40px, 15%, 66px);
 }
 
-/* main */
+/* the styles for the main element */
 main {
   clear: left;
   display: flex;
   flex-direction: column;
 }
 
-/* section */
+/* the styles for the section */
 section h1 {
   color: var(--primary-color);
 }
 
-/* article */
+/* the styles for the article */
 article {
   padding-top: .5em;
   margin-bottom: .5em;
 }
+
 article img {
   float: left;
   margin: .25em 1em 1em 0;
@@ -86,183 +100,170 @@ article img {
   width: min(100%, 225px);
 }
 
-/* aside */
+/* the styles for the aside */
 aside h2 {
   color: var(--primary-color);
 }
+
 aside img {
   margin-bottom: .9em;
 }
+
 aside blockquote {
   font-style: italic;
   margin-left: .5em;
 }
 
-/* footer */
+/* the styles for the footer */
 footer {
   background-color: var(--primary-color);
 }
+
 footer p {
   text-align: center;
   color: white;
   padding-bottom: 0;
 }
 
-/* navigation */
+/* the styles for the navigation menu */
 .navbar {
   background-color: var(--primary-color);
-  position: relative;
 }
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
 }
+
 .navbar a {
   display: block;
   padding: .75em;
   text-decoration: none;
   color: var(--light);
 }
+
 .navbar a.current {
   color: var(--accent-color);
   font-weight: bold;
 }
+
 .navbar a.current:hover {
-  font-style: normal;
+  font-style: normal; /* override hover effect */
 }
 
-/* menu button */
 #menu-toggle {
   display: none;
 }
+
 .menu-btn {
   display: none;
-  background: var(--primary-color);
-  color: white;
-  font-size: 1.5em;
-  padding: 0.5em;
+  font-size: 2em;
+  color: var(--light);
   cursor: pointer;
+  padding: 0.5em;
   text-align: center;
-  width: 100%;
-}
-.menu-btn::before {
-  content: "Menu";
 }
 
-/* menu - پیش‌فرض مخفی */
+.menu-btn::before {
+  content: "☰";
+}
+
 .menu {
   display: none;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
-/* submenus */
 .menu li:has(.submenu) {
   position: relative;
 }
+
 .menu li:has(.submenu) small {
-  margin-left: .25em;
+  margin-left: .25em; /* add space for arrow */
 }
+
 .submenu {
-  position: absolute;
-  left: 0;
   background-color: var(--primary-color);
-  color: var(--light);
-  width: 175%;
   display: none;
   z-index: 1000;
 }
-.menu li:has(.submenu):hover > .submenu {
-  display: block;
-}
 
-/* ====================== موبایل: max-width 749px ====================== */
+/* media query for small screens */
 @media only screen and (max-width: 749px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-  }
-
   .menu-btn {
     display: block;
   }
 
-  /* وقتی چک‌باکس فعال شد، منو نمایش داده بشه */
+  #menu-toggle:checked ~ .menu-btn::before {
+    content: "✕";
+  }
+
   #menu-toggle:checked ~ .menu {
     display: block;
   }
 
-  /* تغییر دکمه به X */
-  #menu-toggle:checked ~ .menu-btn::before {
-    content: "Close";
+  .menu {
+    flex-direction: column;
   }
 
-  /* مثلث راست برای زیرمنو */
   .menu li:has(.submenu) > a::after {
-    content: " Right Arrow";
+    content: " ▸";
     float: right;
-    margin-left: .5em;
   }
 
-  /* زیرمنو در موبایل */
   .submenu {
     position: static;
     width: 100%;
-    background: #7a0f18;
-    display: none;
   }
-  .menu li:has(.submenu):hover > .submenu,
-  #menu-toggle:checked ~ .menu li:has(.submenu) .submenu {
+
+  .menu li:has(.submenu):hover > .submenu {
     display: block;
   }
 }
 
-/* ====================== دسکتاپ: min-width 750px ====================== */
+/* media query for larger screens */
 @media only screen and (min-width: 750px) {
   header {
     text-align: left;
   }
+
   main {
     flex-direction: row;
   }
+
   section {
     order: 2;
     flex-basis: 75%;
   }
+
   aside {
     order: 1;
     flex-basis: 25%;
   }
 
-  /* منو افقی */
-  .menu {
-    display: flex;
-  }
-
-  /* مخفی کردن دکمه */
   .menu-btn, #menu-toggle {
     display: none;
   }
 
-  /* مثلث پایین برای زیرمنو */
-  .menu li:has(.submenu) > a::after {
-    content: " Down Arrow";
-    margin-left: 0.25em;
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
-  /* زیرمنو در دسکتاپ */
   .submenu {
     position: absolute;
-    top: 100%;
     left: 0;
-    width: 200px;
-    display: none;
+    top: 100%;
+    width: 175%;
   }
+
   .menu li:has(.submenu):hover > .submenu {
     display: block;
   }
 
-  /* اگر چک‌باکس فعال شد، منو همچنان افقی بمونه */
+  .menu li:has(.submenu) > a::after {
+    content: " ▾";
+  }
+
   #menu-toggle:checked ~ .menu {
     display: flex;
   }
