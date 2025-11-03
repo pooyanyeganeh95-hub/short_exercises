@@ -1,270 +1,136 @@
-/* variables */
+/* متغیرها */
 :root {
   --primary-color: #931420;
   --accent-color: #f6bb73;
-  --light-accent: #fffded;
   --light: white;
   --dark: black;
 }
 
-/* reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ریست */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* the default styles for the elements */
+/* بدنه */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 100%;
-  width: 80%;
-  margin: auto;
+  width: 80%; margin: auto;
   border: 3px solid var(--primary-color);
 }
 
-header, section, aside, footer {
-  padding: 1em;
-}
-
-h1, h2, h3, p, article, blockquote {
-  padding-bottom: .5em;
-}
-
-ul {
-  margin-left: 1em;
-}
-
-h1 {
-  font-size: 150%;
-}
-
-h2 {
-  font-size: 120%;
-}
-
-h3 {
-  font-size: 110%;
-}
-
-a:focus, a:hover {
-  font-style: italic;
-}
-
-/* the styles for the header */
+/* هدر */
 header {
+  padding: 1em;
   border-bottom: 3px solid var(--primary-color);
-  background-image: linear-gradient(30deg, var(--accent-color) 0%, var(--light-accent) 25%, var(--light) 50%, var(--light-accent) 75%, var(--accent-color) 100%);
+  background: linear-gradient(30deg, var(--accent-color) 0%, #fffded 25%, white 50%, #fffded 75%, var(--accent-color) 100%);
   text-align: center;
 }
+header img { float: left; margin: 0 30px; width: clamp(40px, 15%, 66px); }
+header h2 { font-size: 175%; color: var(--primary-color); }
+header h3 { font-size: 130%; font-style: italic; }
 
-header h2 {
-  font-size: 175%;
-  color: var(--primary-color);
-  padding-bottom: 0;
-}
+/* محتوا */
+main { display: flex; flex-direction: column; }
+section, aside, footer { padding: 1em; }
+section h1, aside h2 { color: var(--primary-color); }
+article img { float: left; margin: .25em 1em 1em 0; border: 1px solid var(--dark); width: min(100%, 225px); }
+footer { background: var(--primary-color); text-align: center; color: white; }
 
-header h3 {
-  font-size: 130%;
-  font-style: italic;
-}
-
-header img {
-  float: left;
-  margin: 0 30px;
-  width: clamp(40px, 15%, 66px);
-}
-
-/* the styles for the main element */
-main {
-  clear: left;
-  display: flex;
-  flex-direction: column;
-}
-
-/* the styles for the section */
-section h1 {
-  color: var(--primary-color);
-}
-
-/* the styles for the article */
-article {
-  padding-top: .5em;
-  margin-bottom: .5em;
-}
-
-article img {
-  float: left;
-  margin: .25em 1em 1em 0;
-  border: 1px solid var(--dark);
-  width: min(100%, 225px);
-}
-
-/* the styles for the aside */
-aside h2 {
-  color: var(--primary-color);
-}
-
-aside img {
-  margin-bottom: .9em;
-}
-
-aside blockquote {
-  font-style: italic;
-  margin-left: .5em;
-}
-
-/* the styles for the footer */
-footer {
-  background-color: var(--primary-color);
-}
-
-footer p {
-  text-align: center;
-  color: white;
-  padding-bottom: 0;
-}
-
-/* the styles for the navigation menu */
+/* نوار ناوبری */
 .navbar {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
+  position: relative;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-}
-
-.navbar a {
-  display: block;
-  padding: .75em;
-  text-decoration: none;
-  color: var(--light);
-}
-
-.navbar a.current {
-  color: var(--accent-color);
-  font-weight: bold;
-}
-
-.navbar a.current:hover {
-  font-style: normal; /* override hover effect */
-}
-
+/* چک‌باکس مخفی */
 #menu-toggle {
   display: none;
 }
 
+/* دکمه همبرگری */
 .menu-btn {
-  display: none;
-  font-size: 2em;
-  color: var(--light);
-  cursor: pointer;
-  padding: 0.5em;
+  display: block;
+  background: var(--primary-color);
+  color: white;
+  font-size: 1.8em;
   text-align: center;
+  padding: 0.6em;
+  cursor: pointer;
+  user-select: none;
 }
 
-.menu-btn::before {
-  content: "☰";
-}
-
+/* منوی اصلی - پیش‌فرض مخفی */
 .menu {
   display: none;
+  list-style: none;
+  background: var(--primary-color);
 }
 
-.menu li:has(.submenu) {
-  position: relative;
+/* لینک‌ها */
+.menu a {
+  display: block;
+  padding: 0.75em;
+  color: white;
+  text-decoration: none;
 }
-
-.menu li:has(.submenu) small {
-  margin-left: .25em; /* add space for arrow */
+.menu a.current {
+  color: var(--accent-color);
+  font-weight: bold;
 }
+.menu a:hover { font-style: italic; }
 
+/* زیرمنو */
 .submenu {
-  background-color: var(--primary-color);
   display: none;
-  z-index: 1000;
+  background: #7a0f18;
+  list-style: none;
+}
+.submenu a { padding-left: 2em; }
+
+/* مثلث برای زیرمنو */
+.menu li:has(.submenu) > a::after {
+  content: " Right Arrow";
+  float: right;
 }
 
-/* media query for small screens */
-@media only screen and (max-width: 749px) {
-  .menu-btn {
-    display: block;
-  }
-
-  #menu-toggle:checked ~ .menu-btn::before {
-    content: "✕";
-  }
-
-  #menu-toggle:checked ~ .menu {
-    display: block;
-  }
-
-  .menu {
-    flex-direction: column;
-  }
-
-  .menu li:has(.submenu) > a::after {
-    content: " ▸";
-    float: right;
-  }
-
-  .submenu {
-    position: static;
-    width: 100%;
-  }
-
-  .menu li:has(.submenu):hover > .submenu {
-    display: block;
-  }
+/* نمایش منو وقتی چک‌باکس فعال شد */
+#menu-toggle:checked ~ .menu {
+  display: block;
 }
 
-/* media query for larger screens */
-@media only screen and (min-width: 750px) {
-  header {
-    text-align: left;
-  }
+/* تغییر همبرگری به X */
+#menu-toggle:checked ~ .menu-btn {
+  content: "Close";
+}
 
-  main {
-    flex-direction: row;
-  }
+/* نمایش زیرمنو در موبایل */
+#menu-toggle:checked ~ .menu li:has(.submenu):hover > .submenu,
+.menu li:has(.submenu):active > .submenu {
+  display: block;
+}
 
-  section {
-    order: 2;
-    flex-basis: 75%;
-  }
-
-  aside {
-    order: 1;
-    flex-basis: 25%;
-  }
-
-  .menu-btn, #menu-toggle {
-    display: none;
-  }
-
+/* دسکتاپ: منوی افقی */
+@media (min-width: 750px) {
+  .menu-btn, #menu-toggle { display: none; }
   .menu {
-    display: flex;
+    display: flex !important;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-
+  .menu li:has(.submenu) { position: relative; }
+  .menu li:has(.submenu) > a::after { content: " Down Arrow"; margin-left: .25em; }
   .submenu {
     position: absolute;
-    left: 0;
-    top: 100%;
-    width: 175%;
+    top: 100%; left: 0;
+    width: 200px;
+    display: none;
+    z-index: 1000;
   }
+  .menu li:has(.submenu):hover > .submenu { display: block; }
+}
 
-  .menu li:has(.submenu):hover > .submenu {
-    display: block;
-  }
-
-  .menu li:has(.submenu) > a::after {
-    content: " ▾";
-  }
-
-  #menu-toggle:checked ~ .menu {
-    display: flex;
-  }
+/* دو ستونه در دسکتاپ */
+@media (min-width: 620px) {
+  main { flex-direction: row; }
+  section { order: 2; flex: 75%; }
+  aside { order: 1; flex: 25%; }
+  header { text-align: left; }
 }
