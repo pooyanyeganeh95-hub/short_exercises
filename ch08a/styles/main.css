@@ -1,127 +1,292 @@
-/* ---------- متغیرها ---------- */
+/* variables */
 :root {
-  --primary: #931420;
-  --accent: #f6bb73;
-  --light: #fff;
+  --primary-color: #931420;
+  --accent-color: #f6bb73;
+  --light-accent: #fffded;
+  --light: white;
+  --dark: black;
 }
 
-/* ---------- ریست ---------- */
-* { margin:0; padding:0; box-sizing:border-box; }
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ---------- بدنه ---------- */
+/* the default styles for the elements */
 body {
-  font:100%/1.5 Arial,Helvetica,sans-serif;
-  width:80%; margin:auto;
-  border:3px solid var(--primary);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  width: 80%;
+  margin: auto;
+  border: 3px solid var(--primary-color);
 }
 
-/* ---------- هدر ---------- */
+header, section, aside, footer {
+  padding: 1em;
+}
+
+h1, h2, h3, p, article, blockquote {
+  padding-bottom: .5em;
+}
+
+ul {
+  margin-left: 1em;
+}
+
+h1 { font-size: 150%; }
+h2 { font-size: 120%; }
+h3 { font-size: 110%; }
+
+a:focus, a:hover { font-style: italic; }
+
+/* the styles for the header */
 header {
-  padding:1em;
-  text-align:center;
-  border-bottom:3px solid var(--primary);
-  background:linear-gradient(30deg,var(--accent) 0%,#fffded 25%,#fff 50%,#fffded 75%,var(--accent));
-}
-header img { float:left; margin:0 30px; width:clamp(40px,15%,66px); }
-header h2 { font-size:175%; color:var(--primary); }
-header h3 { font-size:130%; font-style:italic; }
-
-/* ---------- نوار ناوبری ---------- */
-.navbar {
-  background:var(--primary);
-  position:relative;
+  border-bottom: 3px solid var(--primary-color);
+  background-image: linear-gradient(30deg, var(--accent-color) 0%, var(--light-accent) 25%, var(--light) 50%, var(--light-accent) 75%, var(--accent-color) 100%);
+  text-align: center;
 }
 
-/* چک‌باکس مخفی */
-#nav-check { display:none; }
-
-/* دکمه همبرگری */
-.menu-btn {
-  display:block;
-  background:var(--primary);
-  color:var(--light);
-  font-size:2em;
-  text-align:center;
-  padding:.4em;
-  cursor:pointer;
+header h2 {
+  font-size: 175%;
+  color: var(--primary-color);
+  padding-bottom: 0;
 }
 
-/* منوی اصلی — همیشه مخفی */
-.menu {
-  display:none;
-  list-style:none;
-  background:var(--primary);
+header h3 {
+  font-size: 130%;
+  font-style: italic;
 }
 
-/* وقتی همبرگری کلیک شد */
-#nav-check:checked ~ .menu { display:block; }
-#nav-check:checked ~ .menu-btn { content:"✕"; }
-
-/* لینک‌ها */
-.menu a {
-  display:block;
-  padding:.75em;
-  color:var(--light);
-  text-decoration:none;
-}
-.menu a.current { color:var(--accent); font-weight:bold; }
-.menu a:hover { font-style:italic; }
-
-/* زیرمنو موبایل */
-.submenu {
-  display:none;
-  background:#7a0f18;
-  list-style:none;
-}
-.submenu a { padding-left:2em; }
-
-/* مثلث راست */
-.menu > li > a::after { content:" ▸"; float:right; }
-
-/* نمایش زیرمنو با هاور */
-.menu li:hover > .submenu { display:block; }
-
-/* ---------- دسکتاپ ---------- */
-@media (min-width:750px) {
-  .menu-btn, #nav-check { display:none; }
-  .menu {
-    display:flex !important;
-    flex-wrap:wrap;
-    justify-content:space-evenly;
-  }
-  .menu > li { position:relative; }
-  .menu > li > a::after { content:" ▾"; margin-left:.3em; float:none; }
-  .submenu {
-    position:absolute;
-    top:100%; left:0;
-    width:220px;
-    display:none;
-    z-index:99;
-  }
-  .menu li:hover > .submenu { display:block; }
+header img {
+  float: left;
+  margin: 0 30px;
+  width: clamp(40px, 15%, 66px);
 }
 
-/* ---------- دو ستونه ---------- */
-@media (min-width:620px) {
-  main { display:flex; flex-direction:row; }
-  section { order:2; flex:75%; }
-  aside { order:1; flex:25%; }
-  header { text-align:left; }
+/* the styles for the main element */
+main {
+  clear: left;
+  display: flex;
+  flex-direction: column;
 }
 
-/* ---------- بقیه استایل‌ها ---------- */
-main { clear:left; }
-section, aside, footer { padding:1em; }
-section h1, aside h2 { color:var(--primary); }
+/* the styles for the section */
+section h1 {
+  color: var(--primary-color);
+}
+
+/* the styles for the article */
+article {
+  padding-top: .5em;
+  margin-bottom: .5em;
+}
+
 article img {
-  float:left;
-  margin:.25em 1em 1em 0;
-  border:1px solid #000;
-  width:min(100%,225px);
+  float: left;
+  margin: .25em 1em 1em 0;
+  border: 1px solid var(--dark);
+  width: min(100%, 225px);
 }
+
+/* the styles for the aside */
+aside h2 {
+  color: var(--primary-color);
+}
+
+aside blockquote {
+  font-style: italic;
+  margin-left: .5em;
+}
+
+/* the styles for the footer */
 footer {
-  background:var(--primary);
-  color:var(--light);
-  text-align:center;
-  padding:1em;
+  background-color: var(--primary-color);
+}
+
+footer p {
+  text-align: center;
+  color: white;
+  padding-bottom: 0;
+}
+
+/* the styles for the navigation menu */
+.navbar {
+  background-color: var(--primary-color);
+  position: relative;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.navbar a {
+  display: block;
+  padding: .75em;
+  text-decoration: none;
+  color: var(--light);
+}
+
+.navbar a.current {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.navbar a.current:hover {
+  font-style: normal; /* override hover effect */
+}
+
+/* Checkbox hidden by default */
+#menu-toggle {
+  display: none;
+}
+
+/* Menu button - hamburger for mobile */
+.menu-btn {
+  display: none; /* Hidden on desktop */
+  font-size: 1.5em;
+  color: var(--light);
+  background-color: var(--primary-color);
+  padding: 0.75em;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+/* Menu - hidden by default on mobile, flex on desktop */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.menu li:has(.submenu) {
+  position: relative;
+}
+
+.menu li:has(.submenu) small {
+  margin-left: .25em; /* add space for arrow */
+}
+
+.submenu {
+  position: absolute;
+  left: 0;
+  background-color: var(--primary-color);
+  color: var(--light);
+  width: 175%;
+  display: none;
+  z-index: 1000;
+}
+
+.menu li:has(.submenu):hover > .submenu {
+  display: block;
+}
+
+/* ===================== MOBILE: max-width 749px ===================== */
+@media only screen and (max-width: 749px) {
+  /* Hide menu completely */
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Show hamburger button */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Show menu when checkbox is checked */
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  /* Change to close button */
+  #menu-toggle:checked ~ .menu-btn::before {
+    content: "✕";
+  }
+
+  .menu-btn::before {
+    content: "☰";
+  }
+
+  /* Right triangle for submenus on mobile */
+  .menu li:has(.submenu) > a::after {
+    content: " ▸";
+    float: right;
+  }
+
+  /* Submenu on mobile - static position */
+  .submenu {
+    position: static;
+    width: 100%;
+    display: none;
+    background-color: #7a0f18;
+  }
+
+  .menu li:has(.submenu):hover > .submenu {
+    display: block;
+  }
+}
+
+/* ===================== DESKTOP: min-width 750px ===================== */
+@media only screen and (min-width: 750px) {
+  header {
+    text-align: left;
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  section {
+    order: 2;
+    flex-basis: 75%;
+  }
+
+  aside {
+    order: 1;
+    flex-basis: 25%;
+  }
+
+  /* Hide hamburger on desktop */
+  .menu-btn,
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Show menu horizontally */
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  /* Down triangle for submenus on desktop */
+  .menu li:has(.submenu) > a::after {
+    content: " ▾";
+    margin-left: 0.25em;
+    float: none;
+  }
+
+  /* Submenu on desktop - absolute position below */
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    display: none;
+    z-index: 1000;
+  }
+
+  .menu li:has(.submenu):hover > .submenu {
+    display: block;
+  }
+
+  /* If checkbox checked (edge case), keep horizontal */
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
 }
