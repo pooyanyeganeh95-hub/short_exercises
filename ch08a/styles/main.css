@@ -1,4 +1,6 @@
-/* variables */
+/* =========================
+   Variables
+========================= */
 :root {
   --primary-color: #931420;
   --accent-color: #f6bb73;
@@ -7,14 +9,18 @@
   --dark: black;
 }
 
-/* reset */
+/* =========================
+   Reset
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* the default styles for the elements */
+/* =========================
+   Base Styles
+========================= */
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 100%;
@@ -22,6 +28,7 @@ body {
   margin: auto;
   border: 3px solid var(--primary-color);
 }
+
 header, section, aside, footer { padding: 1em; }
 h1, h2, h3, p, article, blockquote { padding-bottom: .5em; }
 ul { margin-left: 1em; list-style: none; }
@@ -30,7 +37,9 @@ h2 { font-size: 120%; }
 h3 { font-size: 110%; }
 a:focus, a:hover { font-style: italic; }
 
-/* the styles for the header */
+/* =========================
+   Header
+========================= */
 header {
   border-bottom: 3px solid var(--primary-color);
   background-image: linear-gradient(30deg,
@@ -56,19 +65,23 @@ header img {
   width: clamp(40px, 15%, 66px);
 }
 
-/* the styles for the main element */
+/* =========================
+   Main Layout
+========================= */
 main {
   clear: left;
   display: flex;
   flex-direction: column;
 }
 
-/* the styles for the section */
-section h1 {
-  color: var(--primary-color);
-}
+/* =========================
+   Section
+========================= */
+section h1 { color: var(--primary-color); }
 
-/* the styles for the article */
+/* =========================
+   Article
+========================= */
 article {
   padding-top: .5em;
   margin-bottom: .5em;
@@ -80,162 +93,119 @@ article img {
   width: min(100%, 225px);
 }
 
-/* the styles for the aside */
-aside h2 {
-  color: var(--primary-color);
-}
-aside img {
-  margin-bottom: .9em;
-}
+/* =========================
+   Aside
+========================= */
+aside h2 { color: var(--primary-color); }
 aside blockquote {
   font-style: italic;
   margin-left: .5em;
 }
 
-/* the styles for the footer */
+/* =========================
+   Footer
+========================= */
 footer {
   background-color: var(--primary-color);
-}
-footer p {
-  text-align: center;
   color: white;
-  padding-bottom: 0;
+  text-align: center;
+  padding: 1em;
 }
 
-/* ========== NAV / MENU BASE STYLES (mobile-first) ========== */
-
+/* =========================
+   Navbar (mobile-first)
+========================= */
 .navbar {
   background-color: var(--primary-color);
-  position: relative;     /* needed so dropdowns can be positioned relative to nav */
-  z-index: 1000;          /* keep nav on top of other content */
+  position: relative;
+  z-index: 1000;
   padding: 0.25em 0.5em;
 }
 
-/* hide native list bullets and spacing */
 .navbar ul {
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* links */
 .navbar a {
   display: block;
   padding: .75em;
   text-decoration: none;
   color: var(--light);
 }
+
 .navbar a.current {
   color: var(--accent-color);
   font-weight: bold;
 }
+
 .navbar a.current:hover {
   font-style: normal;
 }
 
-/* MENU: mobile default = hidden until user toggles */
+/* Menu hidden by default (mobile) */
 .menu {
-  display: none;             /* hidden by default on small screens */
+  display: none;
   flex-direction: column;
-  gap: 0;
   margin-top: .25em;
 }
 
-/* simple layout for list items */
-.menu > li {
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* show/hide input (controller) */
-#menu-toggle {
-  display: none; /* we don't want to show the checkbox itself */
-}
-
-/* the visual menu button (label) */
+/* Menu button (hamburger) */
 .menu-btn {
   display: block;
   background-color: var(--primary-color);
   color: var(--light);
   padding: 0.5em 0.75em;
   cursor: pointer;
-  font-size: 1.4em;
+  font-size: 1.6em;
   text-align: right;
   user-select: none;
 }
 
-/* show hamburger symbol inside label (we use ::before so we can change to X with :checked) */
 .menu-btn::before {
   content: "\2630"; /* ☰ */
-  display: inline-block;
-  margin-left: 0.5em;
 }
 
-/* when checkbox is checked, change the icon to close and show the menu */
-/* Structure in HTML: input#menu-toggle + label.menu-btn ~ ul.menu */
+#menu-toggle {
+  display: none;
+}
+
+/* When checked — show X and show menu */
 #menu-toggle:checked + .menu-btn::before {
   content: "\2715"; /* ✕ */
 }
-#menu-toggle:checked ~ .menu {
+#menu-toggle:checked + .menu-btn + .menu {
   display: flex;
 }
 
-/* hide the existing small arrow in HTML to control arrows via CSS */
-.menu a small {
-  display: none;
-}
-
-/* indicate items with submenu using a right-pointing triangle (mobile) */
-.menu li:has(.submenu) > a::after {
-  content: " ▶";
-  font-size: 0.9em;
-  margin-left: .25em;
-}
-
-/* submenus: mobile default -- position to the right of the parent on hover */
-/* submenu hidden by default */
+/* Submenu base */
 .submenu {
+  display: none;
   position: absolute;
-  left: 100%;    /* to the right of parent item */
-  top: 0;
   background-color: var(--primary-color);
   color: var(--light);
   min-width: 180px;
-  display: none;
-  z-index: 2000;  /* above nav and content */
-}
-
-/* show submenu when hovering over parent (works on desktops; on touch devices user may need to tap/hold) */
-.menu li:has(.submenu):hover > .submenu {
-  display: block;
-}
-
-/* style submenu items */
-.submenu li a {
-  padding: .5em .75em;
-  white-space: nowrap;
-  display: block;
-}
-
-/* make sure dropdowns display above main content */
-.menu li, .submenu {
-  position: relative;
   z-index: 2000;
 }
 
-/* ========== EXISTING FLEX RULE FOR TOP-LEVEL MENU WRAP BEHAVIOR (mobile-first we hide menu) ========== */
-.menu {
-  flex-wrap: nowrap;
+/* Hover show submenu */
+.menu li:hover .submenu {
+  display: block;
 }
 
-/* ========== MEDIA QUERY: LARGER SCREENS (tablet/desktop) ========== */
-/* The exercises told you to note the width where items wrap — typical value used here is 620px.
-   If your test found a different width, replace 620px with that value. */
-@media only screen and (min-width: 620px) {
-  header {
-    text-align: left;
-  }
+.submenu li a {
+  padding: .5em .75em;
+  display: block;
+  white-space: nowrap;
+}
 
-  /* page layout two-column on larger screens */
+/* =========================
+   Desktop Layout
+========================= */
+@media only screen and (min-width: 620px) {
+  header { text-align: left; }
+
   main {
     flex-direction: row;
   }
@@ -248,89 +218,21 @@ footer p {
     flex-basis: 25%;
   }
 
-  /* Desktop menu: show menu horizontally, hide menu button */
-  .menu-btn {
-    display: none !important;
-  }
-
-  /* show menu horizontally */
+  .menu-btn { display: none !important; }
   .menu {
     display: flex !important;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 0;
   }
 
-  /* top-level list items inline style reset */
   .menu > li {
-    border: none;
-    position: relative; /* for absolute-positioned submenu below */
+    position: relative;
   }
 
-  .menu a {
-    padding: .75em 1em;
-  }
-
-  /* show a down triangle for items with submenu on desktop */
-  .menu li:has(.submenu) > a::after {
-    content: " ▼";
-    margin-left: .25em;
-  }
-
-  /* submenu on desktop should appear below the parent item */
-  .submenu {
-    position: absolute;
+  .menu li:hover .submenu {
+    display: block;
     top: 100%;
     left: 0;
-    display: none;        /* still hidden until hover */
-    min-width: 200px;
-    z-index: 2000;
   }
-
-  /* show submenu on hover (desktop) */
-  .menu li:has(.submenu):hover > .submenu {
-    display: block;
-  }
-
-  /* ensure hover submenu items layout vertically */
-  .submenu {
-    display: none; /* visible only on hover */
-    flex-direction: column;
-  }
-  .submenu li a {
-    padding: .5em 1em;
-  }
-
-  /* If the checkbox happens to be checked (e.g., user toggled it), ensure menu still displays horizontally */
-  #menu-toggle:checked ~ .menu {
-    display: flex !important;
-    flex-direction: row;
-  }
-
-  /* keep nav and dropdowns stacked above content */
-  .navbar {
-    z-index: 1000;
-  }
-  .submenu {
-    z-index: 2000;
-  }
-}
-
-/* ========== small visual tweaks ========== */
-/* make sure links are readable on small screens */
-.navbar a {
-  font-weight: normal;
-}
-
-/* ensure long submenu items don't push layout */
-.submenu li a {
-  white-space: nowrap;
-}
-
-/* accessibility: focus styles */
-.menu a:focus, .submenu a:focus {
-  outline: 2px dashed var(--accent-color);
-  outline-offset: 2px;
 }
