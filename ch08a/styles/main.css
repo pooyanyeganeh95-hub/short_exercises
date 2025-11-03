@@ -47,7 +47,7 @@ header h2 {
 header h3 {
 	font-size: 130%;
 	font-style: italic;
-	display: none; /* hidden by default for small screens */
+	display: none; 
 }
 header img {
 	float: left;
@@ -59,7 +59,7 @@ header img {
 main {
 	clear: left;
 	display: flex;
-	flex-direction: column; /* mobile-first layout */
+	flex-direction: column; 
 }
 
 /* section */
