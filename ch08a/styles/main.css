@@ -1,148 +1,127 @@
-/* --- متغیرها --- */
+/* ---------- متغیرها ---------- */
 :root {
-  --primary-color: #931420;
-  --accent-color: #f6bb73;
-  --light: white;
-  --dark: black;
+  --primary: #931420;
+  --accent: #f6bb73;
+  --light: #fff;
 }
 
-/* --- ریست --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ---------- ریست ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* --- بدنه --- */
+/* ---------- بدنه ---------- */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 80%; margin: auto;
-  border: 3px solid var(--primary-color);
+  font:100%/1.5 Arial,Helvetica,sans-serif;
+  width:80%; margin:auto;
+  border:3px solid var(--primary);
 }
 
-/* --- هدر --- */
+/* ---------- هدر ---------- */
 header {
-  padding: 1em;
-  border-bottom: 3px solid var(--primary-color);
-  background: linear-gradient(30deg, var(--accent-color) 0%, #fffded 25%, white 50%, #fffded 75%, var(--accent-color) 100%);
-  text-align: center;
+  padding:1em;
+  text-align:center;
+  border-bottom:3px solid var(--primary);
+  background:linear-gradient(30deg,var(--accent) 0%,#fffded 25%,#fff 50%,#fffded 75%,var(--accent));
 }
-header img { float: left; margin: 0 30px; width: clamp(40px, 15%, 66px); }
-header h2 { font-size: 175%; color: var(--primary-color); }
-header h3 { font-size: 130%; font-style: italic; }
+header img { float:left; margin:0 30px; width:clamp(40px,15%,66px); }
+header h2 { font-size:175%; color:var(--primary); }
+header h3 { font-size:130%; font-style:italic; }
 
-/* --- محتوا --- */
-main { display: flex; flex-direction: column; }
-section, aside, footer { padding: 1em; }
-section h1, aside h2 { color: var(--primary-color); }
-article img { float: left; margin: .25em 1em 1em 0; border: 1px solid var(--dark); width: min(100%, 225px); }
-footer { background: var(--primary-color); color: white; text-align: center; }
-
-/* --- نوار ناوبری --- */
+/* ---------- نوار ناوبری ---------- */
 .navbar {
-  background: var(--primary-color);
-  position: relative;
+  background:var(--primary);
+  position:relative;
 }
 
 /* چک‌باکس مخفی */
-#menu-toggle {
-  display: none;
-}
+#nav-check { display:none; }
 
 /* دکمه همبرگری */
 .menu-btn {
-  display: block;
-  background: var(--primary-color);
-  color: white;
-  font-size: 1.8em;
-  text-align: center;
-  padding: 0.6em;
-  cursor: pointer;
-  user-select: none;
+  display:block;
+  background:var(--primary);
+  color:var(--light);
+  font-size:2em;
+  text-align:center;
+  padding:.4em;
+  cursor:pointer;
 }
 
-/* منوی اصلی — پیش‌فرض مخفی */
+/* منوی اصلی — همیشه مخفی */
 .menu {
-  display: none;
-  list-style: none;
-  background: var(--primary-color);
+  display:none;
+  list-style:none;
+  background:var(--primary);
 }
+
+/* وقتی همبرگری کلیک شد */
+#nav-check:checked ~ .menu { display:block; }
+#nav-check:checked ~ .menu-btn { content:"✕"; }
 
 /* لینک‌ها */
 .menu a {
-  display: block;
-  padding: 0.75em;
-  color: white;
-  text-decoration: none;
+  display:block;
+  padding:.75em;
+  color:var(--light);
+  text-decoration:none;
 }
-.menu a.current {
-  color: var(--accent-color);
-  font-weight: bold;
-}
-.menu a:hover { font-style: italic; }
+.menu a.current { color:var(--accent); font-weight:bold; }
+.menu a:hover { font-style:italic; }
 
-/* زیرمنو */
+/* زیرمنو موبایل */
 .submenu {
-  display: none;
-  background: #7a0f18;
-  list-style: none;
+  display:none;
+  background:#7a0f18;
+  list-style:none;
 }
-.submenu a { padding-left: 2em; }
+.submenu a { padding-left:2em; }
 
-/* مثلث راست در موبایل */
-.menu li:has(.submenu) > a::after {
-  content: " Right Arrow";
-  float: right;
-}
+/* مثلث راست */
+.menu > li > a::after { content:" ▸"; float:right; }
 
-/* --- وقتی چک‌باکس فعال شد، منو باز بشه --- */
-#menu-toggle:checked ~ .menu {
-  display: block;
-}
+/* نمایش زیرمنو با هاور */
+.menu li:hover > .submenu { display:block; }
 
-/* --- تغییر همبرگری به X --- */
-#menu-toggle:checked ~ .menu-btn::before {
-  content: "Close";
-}
-.menu-btn::before {
-  content: "Menu";
-}
-
-/* --- نمایش زیرمنو در موبایل --- */
-.menu li:has(.submenu):hover > .submenu,
-#menu-toggle:checked ~ .menu li:has(.submenu):hover > .submenu {
-  display: block;
-}
-
-/* --- دسکتاپ: منوی افقی --- */
-@media (min-width: 750px) {
-  .menu-btn, #menu-toggle {
-    display: none !important;
-  }
+/* ---------- دسکتاپ ---------- */
+@media (min-width:750px) {
+  .menu-btn, #nav-check { display:none; }
   .menu {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display:flex !important;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
   }
-  .menu li:has(.submenu) {
-    position: relative;
-  }
-  .menu li:has(.submenu) > a::after {
-    content: " Down Arrow";
-    margin-left: 0.25em;
-  }
+  .menu > li { position:relative; }
+  .menu > li > a::after { content:" ▾"; margin-left:.3em; float:none; }
   .submenu {
-    position: absolute;
-    top: 100%; left: 0;
-    width: 200px;
-    display: none;
-    z-index: 1000;
+    position:absolute;
+    top:100%; left:0;
+    width:220px;
+    display:none;
+    z-index:99;
   }
-  .menu li:has(.submenu):hover > .submenu {
-    display: block;
-  }
+  .menu li:hover > .submenu { display:block; }
 }
 
-/* --- دو ستونه --- */
-@media (min-width: 620px) {
-  main { flex-direction: row; }
-  section { order: 2; flex: 75%; }
-  aside { order: 1; flex: 25%; }
-  header { text-align: left; }
+/* ---------- دو ستونه ---------- */
+@media (min-width:620px) {
+  main { display:flex; flex-direction:row; }
+  section { order:2; flex:75%; }
+  aside { order:1; flex:25%; }
+  header { text-align:left; }
+}
+
+/* ---------- بقیه استایل‌ها ---------- */
+main { clear:left; }
+section, aside, footer { padding:1em; }
+section h1, aside h2 { color:var(--primary); }
+article img {
+  float:left;
+  margin:.25em 1em 1em 0;
+  border:1px solid #000;
+  width:min(100%,225px);
+}
+footer {
+  background:var(--primary);
+  color:var(--light);
+  text-align:center;
+  padding:1em;
 }
