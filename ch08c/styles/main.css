@@ -44,7 +44,10 @@ main {
 }
 section { flex-basis: 75%; }
 aside { flex-basis: 25%; }
-
+section h1,
+aside h2 {
+	color: var(--primary-color);
+}
 /* Article */
 article img {
 	float: left;
