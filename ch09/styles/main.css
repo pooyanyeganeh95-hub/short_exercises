@@ -193,6 +193,29 @@ footer {
 }
 
 /* the styles for the Contact Us section */
+/* the styles for the Contact Us section */
 .contact {
 	padding: 2em 5em;	
+	list-style-type: square; /* مربع برای بولت‌ها */
+	margin-left: 2em; /* تورفتگی */
+}
+
+.contact li {
+	margin-bottom: 1em; /* فاصله عمودی بین موارد */
+}
+
+.contact li::marker {
+	padding-right: 10px; /* فاصله بین بولت و متن */
+}
+
+.contact a {
+	color: var(--accent-color);
+	text-decoration: underline;
+}
+
+.contact a:hover,
+.contact a:focus {
+	color: var(--primary-color);
+	text-decoration: none;
+	font-style: normal;
 }
