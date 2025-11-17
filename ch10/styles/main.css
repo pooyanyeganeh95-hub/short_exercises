@@ -139,6 +139,14 @@ main a {
 	color: color-mix(in srgb, var(--accent-color) 65%, var(--primary-color) 35%);
 }
 
+/* ⭐ FIX: Contact Us should appear below figure + have a top border */
+section h2:nth-of-type(3) {
+	clear: left;
+	border-top: 3px solid var(--primary-color);
+	padding-top: .75em;
+	margin-top: 1em;
+}
+
 /* footer */
 footer {
 	background-color: var(--primary-color);
