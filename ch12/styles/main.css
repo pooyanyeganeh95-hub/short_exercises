@@ -4,8 +4,6 @@
     --dark: black;
     --valid: #2ecc71;
     --invalid: #e74c3c;
-    --btn-bg: #333;
-    --btn-hover: #555;
 }
 
 /* reset */
@@ -27,7 +25,6 @@ h1, h2, h3 {
     padding-bottom: .5em;
 }
 
-/* Form styles */
 form {
     width:100%;
 }
@@ -55,13 +52,14 @@ input, select, textarea {
     padding: .4em;
     margin-bottom: .5em;
     border-radius: 5px;
-    border: 1px solid #aaa;
+    border: 1px solid #777;
 }
 
 /* VALIDATION COLORS */
 input:invalid {
     border: 2px solid var(--invalid);
 }
+
 input:valid {
     border: 2px solid var(--valid);
 }
@@ -85,8 +83,8 @@ input:valid {
 }
 
 .reset-btn {
-    background: #888;
+    background: #777;
 }
 .reset-btn:hover {
-    background: #666;
+    background: #555;
 }
