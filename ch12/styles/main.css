@@ -2,6 +2,10 @@
 :root {
     --light: white;
     --dark: black;
+    --valid: #2ecc71;
+    --invalid: #e74c3c;
+    --btn-bg: #333;
+    --btn-hover: #555;
 }
 
 /* reset */
@@ -18,18 +22,71 @@ body {
     margin: auto;
     padding: 1em;
 }
+
 h1, h2, h3 {
     padding-bottom: .5em;
 }
-form, input, select, textarea {
+
+/* Form styles */
+form {
     width:100%;
 }
-input, select, button {
-    font-size: inherit;
-    padding: .25em;
-    margin-bottom: .5em;
-    border-radius: 5px;
+
+fieldset {
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
+
+legend {
+    font-weight: bold;
+    padding: 0 .5em;
+}
+
 label {
     display: block;
+    margin-top: .5em;
+}
+
+input, select, textarea {
+    width:100%;
+    font-size: inherit;
+    padding: .4em;
+    margin-bottom: .5em;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+/* VALIDATION COLORS */
+input:invalid {
+    border: 2px solid var(--invalid);
+}
+input:valid {
+    border: 2px solid var(--valid);
+}
+
+/* BUTTONS */
+.btn.base {
+    font-size: 1em;
+    padding: .5em 1em;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-right: .5em;
+}
+
+.submit-btn {
+    background: #1e90ff;
+}
+.submit-btn:hover {
+    background: #0c70d4;
+}
+
+.reset-btn {
+    background: #888;
+}
+.reset-btn:hover {
+    background: #666;
 }
