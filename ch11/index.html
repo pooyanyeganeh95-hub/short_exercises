@@ -9,47 +9,52 @@
 		body {
 			font-family: Arial, Helvetica, sans-serif;
             font-size: 100%;
-			width: 80%;
+			width: 85%;
 			margin: 1em auto;
 		}
 
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: .4em;
+        }
+
 		table {
 			border-collapse: collapse;
-			border: 1px solid black;
+			border: 2px solid black;
 			width: 100%;
 		}
 
-        caption {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin-bottom: .6em;
+        thead th {
+            background-color: lightgreen;
+            border: 1px solid black;
+            padding: .5em;
         }
 
-		thead {
-			background-color: lightgreen;
-		}
+        td, th {
+            border: 1px solid black;
+            padding: .5em .8em;
+            vertical-align: middle;
+            text-align: left;
+        }
 
-		th, td {
-			border: 1px solid black;
-			padding: .5em 1em .5em .5em;
-			text-align: left;
-			vertical-align: middle;
-		}
+        tbody tr:nth-child(even) td {
+            background-color: #e9e9e9;
+        }
 
-		tbody tr:nth-child(even) td {
-			background-color: #e9e9e9;
-		}
-
-        /* Years of service (ستون آخر) راست‌چین */
         tbody td:last-child {
             text-align: right;
         }
 
+        tfoot td {
+            background-color: lightgreen;
+            font-weight: bold;
+            text-align: right;
+        }
 
-        /* -------------------- MOBILE LAYOUT (<640px) -------------------- */
+        /* -------------------- NARROW SCREEN -------------------- */
         @media (max-width: 640px) {
-
-            table, thead, tbody, th, td, tr {
+            table, thead, tbody, tfoot, th, td, tr {
                 display: block;
             }
 
@@ -58,27 +63,43 @@
             }
 
             tr {
-                background: #f7f7f7;
-                margin-bottom: 1em;
-                padding: .8em;
                 border: 1px solid #ccc;
+                background: #fafafa;
+                margin: 1em 0;
+                padding: .8em;
                 border-radius: 10px;
             }
 
+            /* Label formatting */
             td {
                 border: none;
-                padding: .3em 0;
+                padding: .4em 0;
             }
 
             td::before {
+                display: block;
                 font-weight: bold;
-                display: block;    /* مهم برای چسبیدن به لبه چپ */
                 margin-bottom: .2em;
             }
 
-            td:nth-child(1)::before { content: "Name"; }
-            td:nth-child(2)::before { content: "E-mail"; }
-            td:nth-child(3)::before { content: "Years of Service"; }
+            /* Labels */
+            td:nth-child(1)::before { content: "Department"; }
+            td:nth-child(2)::before { content: "Name"; }
+            td:nth-child(3)::before { content: "E-mail"; }
+            td:nth-child(4)::before { content: "Years of Service"; }
+
+            /* Footer row mobile */
+            tfoot tr {
+                background: lightgreen;
+                padding: .8em;
+                border-radius: 10px;
+            }
+
+            tfoot td {
+                border: none;
+                font-size: 1.1em;
+                text-align: center;
+            }
         }
 	</style>
 </head>
@@ -86,53 +107,67 @@
 <body>
 
 <table>
-    <caption>Employee Years of Service</caption>
+    <caption>Employee Table</caption>
 
 	<thead>
 		<tr>
+			<th>Department</th>
 			<th>Name</th>
 			<th>E-mail</th>
-			<th class="right">Years of Service</th>
+			<th>Years of Service</th>
 		</tr>
 	</thead>
 
 	<tbody>
 		<tr>
+			<td rowspan="2">Editorial</td>
 			<td>Joel Murach</td>
 			<td>joelmurach@yahoo.com</td>
 			<td>22</td>
 		</tr>
-		<tr>
+        <tr>
 			<td>Anne Boehm</td>
 			<td>anne@murach.com</td>
 			<td>34</td>
 		</tr>
+
 		<tr>
+			<td rowspan="2">Marketing</td>
 			<td>Zak Ruvalcaba</td>
 			<td>zak@modulemedia.com</td>
 			<td>4</td>
 		</tr>
-		<tr>
+        <tr>
 			<td>Judy Taylor</td>
 			<td>judy@murach.com</td>
 			<td>39</td>
 		</tr>
+
 		<tr>
+			<td rowspan="3">Customer Service</td>
 			<td>Bethany Lee</td>
 			<td>bethany@murach.com</td>
 			<td>10</td>
 		</tr>
-		<tr>
+        <tr>
 			<td>Kelly Slivkoff</td>
 			<td>kelly@murach.com</td>
 			<td>25</td>
 		</tr>
-		<tr>
+        <tr>
 			<td>Juliette Baylon</td>
 			<td>juliette@murach.com</td>
 			<td>1</td>
 		</tr>
 	</tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total Years of Service</td>
+            <td>105</td>
+        </tr>
+    </tfoot>
+
 </table>
 
 </body>
