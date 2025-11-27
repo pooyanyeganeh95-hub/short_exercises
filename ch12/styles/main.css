@@ -75,16 +75,18 @@ input:valid {
     margin-right: .5em;
 }
 
+/* Submit button (green) */
 .submit-btn {
-    background: #1e90ff;
+    background: #2ecc71;
 }
 .submit-btn:hover {
-    background: #0c70d4;
+    background: #27ae60;
 }
 
+/* Reset button (gray) */
 .reset-btn {
-    background: #777;
+    background: #999;
 }
 .reset-btn:hover {
-    background: #555;
+    background: #777;
 }
