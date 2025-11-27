@@ -9,8 +9,55 @@
 
 <body>
 <h1>Please complete our survey</h1>
+
 <form action="confirmation.html" method="post">
-    
+
+    <!-- CONTACT INFORMATION -->
+    <fieldset>
+        <legend>Contact information</legend>
+
+        <label for="firstname">First name:</label>
+        <input type="text" id="firstname" name="firstname" required accesskey="f" autofocus>
+
+        <label for="lastname">Last name:</label>
+        <input type="text" id="lastname" name="lastname" required accesskey="l">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required accesskey="e">
+    </fieldset>
+
+    <!-- GEOGRAPHIC INFORMATION -->
+    <fieldset>
+        <legend>Geographic information</legend>
+
+        <label for="state">State (2 letters):</label>
+        <input type="text" id="state" name="state" required accesskey="s" pattern="^[A-Za-z]{2}$" placeholder="CA">
+
+        <label for="zip">Zip code (5 digits):</label>
+        <input type="text" id="zip" name="zip" required accesskey="z" pattern="^[0-9]{5}$" placeholder="90025">
+    </fieldset>
+
+    <!-- SOURCE GROUP -->
+    <fieldset>
+        <legend>How did you hear about us?</legend>
+
+        <label for="source">Source:</label>
+        <select id="source" name="source">
+            <option value="Search engine">Search engine</option>
+            <option value="Friend">Friend</option>
+            <option value="Ad">Advertisement</option>
+            <option value="Social media">Social media</option>
+        </select>
+
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+    </fieldset>
+
+    <!-- BUTTONS -->
+    <button type="submit" class="btn base submit-btn">Submit</button>
+    <button type="reset" class="btn base reset-btn">Reset</button>
+
 </form>
+
 </body>
 </html>
