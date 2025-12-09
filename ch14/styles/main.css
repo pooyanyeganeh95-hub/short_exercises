@@ -32,23 +32,20 @@ header {
         var(--light-accent) 75%,
         var(--accent) 100%);
 }
-
 header img {
-    width:66px;
+    float:left;
     margin-right:1em;
 }
-
 header h2 {
     font-size:175%;
     color:var(--primary);
 }
-
 header h3 {
     font-size:130%;
     font-style:italic;
 }
 
-/* GRID LAYOUT */
+/* GRID */
 .grid {
     display:grid;
     grid-template-columns: repeat(12, 1fr);
@@ -56,30 +53,19 @@ header h3 {
     padding:1em;
 }
 
-/* LEFT COLUMN (3 columns) */
-.left {
-    grid-column: 1 / span 3;
-}
+/* COLUMN AREAS */
+.left   { grid-column: 1 / span 3; }
+.middle { grid-column: 4 / span 6; }
+.right  { grid-column: 10 / span 3; }
 
-/* MIDDLE COLUMN (6 columns) */
-.middle {
-    grid-column: 4 / span 6;
-}
-
-/* RIGHT COLUMN (3 columns) */
-.right {
-    grid-column: 10 / span 3;
-}
-
-/* REMOVE FLOATS COMPLETELY */
+/* IMAGES INSIDE ARTICLE */
 article img {
     width:225px;
     border:1px solid var(--dark);
     display:block;
-    margin: 0 auto 1em auto; /* center inside column */
+    margin:0 auto 1em auto;
 }
 
-/* TEXT COLORS */
 aside h2,
 section h2 {
     color:var(--primary);
@@ -90,7 +76,6 @@ footer {
     background:var(--primary);
     padding:1em;
 }
-
 footer p {
     text-align:center;
     color:white;
