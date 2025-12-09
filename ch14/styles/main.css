@@ -36,7 +36,6 @@ header {
 header img {
     width:66px;
     margin-right:1em;
-    float:left;
 }
 
 header h2 {
@@ -57,40 +56,51 @@ header h3 {
     padding:1em;
 }
 
-/* LEFT COLUMN (Guest Speakers) */
+/* LEFT COLUMN (3 columns) */
 .left {
     grid-column: 1 / span 3;
 }
 
-/* MIDDLE COLUMN */
+/* MIDDLE COLUMN (6 columns) */
 .middle {
     grid-column: 4 / span 6;
 }
 
-/* RIGHT COLUMN (Event change) */
+/* RIGHT COLUMN (3 columns) */
 .right {
     grid-column: 10 / span 3;
 }
 
-/* SECTION TEXT COLORS */
-aside h2,
-section h2 {
-    color:var(--primary);
+/******************************
+   SECTION & ARTICLE STYLES
+******************************/
+
+/* خط زیر Speaker of the Month */
+.middle h1 {
+    border-bottom: 3px solid var(--primary);
+    margin-bottom: .5em;
+    padding-bottom: .25em;
 }
 
-/* ARTICLE IMAGE — FLOAT LEFT LIKE PDF */
+/* خط بالای Our Ticket Packages */
+.middle ul {
+    border-top: 3px solid var(--primary);
+    padding-top: .5em;
+    margin-top: .5em;
+}
+
+/* IMAGE FIX — سمت راست قرار می‌گیرد */
 .middle article img {
-    float:left;
-    margin: .25em 1em .5em 0;
+    float:right;
+    margin: .25em 0 .5em 1em; /* فاصله مناسب از متن */
     width:225px;
     border:1px solid var(--dark);
 }
 
-/* H2 TOP BORDER ABOVE "Our Ticket Packages" */
-.middle h2:last-of-type {
-    border-top:3px solid var(--primary);
-    padding-top:.5em;
-    margin-top:1em;
+/* COLOR FOR SECTION TITLES */
+aside h2,
+section h2 {
+    color:var(--primary);
 }
 
 /* FOOTER */
