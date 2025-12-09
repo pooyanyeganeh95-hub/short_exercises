@@ -1,96 +1,96 @@
-/* variables */
-:root {
-    --primary-color: #931420;
-    --accent-color: #f6bb73;
-    --light-accent: #fffded;
-    --light: white;
-    --dark: black;
+/* VARIABLES */
+:root{
+    --primary:#931420;
+    --accent:#f6bb73;
+    --light-accent:#fffded;
+    --light:white;
+    --dark:black;
 }
 
-/* reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Base page styles */
-body {
-    width: 80%;
-    margin: auto;
-    border: 3px solid var(--primary-color);
-    font-family: Arial, Helvetica, sans-serif;
-
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 1rem;
+body{
+    width:80%;
+    margin:auto;
+    font-family:Arial, Helvetica, sans-serif;
+    border:3px solid var(--primary);
 }
 
-/* Header spans all 12 columns */
-header {
-    grid-column: 1 / 13;
-    padding: 1em;
-    border-bottom: 3px solid var(--primary-color);
-    background-image: linear-gradient(30deg,
-        var(--accent-color) 0%,
+/* HEADER */
+header{
+    border-bottom:3px solid var(--primary);
+    padding:1em;
+    background:linear-gradient(30deg,
+        var(--accent) 0%,
         var(--light-accent) 25%,
         var(--light) 50%,
         var(--light-accent) 75%,
-        var(--accent-color) 100%);
+        var(--accent) 100%);
 }
 
-header img {
-    float: left;
-    margin-right: 20px;
+header img{
+    float:left;
+    margin-right:1em;
+    width:66px;
 }
 
-header h2 {
-    font-size: 1.75rem;
-    color: var(--primary-color);
+header h2{
+    font-size:175%;
+    color:var(--primary);
 }
 
-header h3 {
-    font-size: 1.3rem;
-    font-style: italic;
+header h3{
+    font-size:130%;
+    font-style:italic;
 }
 
-/* LEFT ASIDE – spans columns 1–3 */
-aside.left {
-    grid-column: 1 / 4;
-    padding: 1em;
+/* GRID LAYOUT */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:1em;
+    padding:1em;
 }
 
-aside.left img {
-    margin-bottom: 1rem;
+/* LEFT ASIDE (4 columns) */
+.left{
+    grid-column: 1 / span 3;
 }
 
-/* Section – spans columns 4–12 */
-section {
-    grid-column: 4 / 13;
-    padding: 1em;
+/* MIDDLE SECTION (6 columns) */
+.middle{
+    grid-column: 4 / span 6;
 }
 
-section article img {
-    float: right;
-    width: 220px;
-    margin: 0 0 1rem 1rem;
-    border: 1px solid var(--dark);
+/* RIGHT ASIDE (3 columns) */
+.right{
+    grid-column: 10 / span 3;
 }
 
-/* ASIDE BOTTOM – spans full width under section */
-aside.bottom {
-    grid-column: 1 / 13;
-    padding: 1em;
+/* CONTENT STYLES */
+aside h2, section h2{
+    color:var(--primary);
 }
 
-/* Footer spans full width */
-footer {
-    grid-column: 1 / 13;
-    background-color: var(--primary-color);
-    padding: 1em;
+article img{
+    float:right;
+    width:225px;
+    margin-left:1em;
+    border:1px solid var(--dark);
 }
 
-footer p {
-    text-align: center;
-    color: white;
+/* FOOTER */
+footer{
+    background:var(--primary);
+    padding:1em;
+}
+
+footer p{
+    text-align:center;
+    color:white;
 }
