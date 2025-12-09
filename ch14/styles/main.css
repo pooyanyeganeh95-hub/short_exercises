@@ -1,5 +1,5 @@
 /* VARIABLES */
-:root{
+:root {
     --primary:#931420;
     --accent:#f6bb73;
     --light-accent:#fffded;
@@ -8,13 +8,13 @@
 }
 
 /* RESET */
-*{
+* {
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
+body {
     width:80%;
     margin:auto;
     font-family:Arial, Helvetica, sans-serif;
@@ -22,7 +22,7 @@ body{
 }
 
 /* HEADER */
-header{
+header {
     border-bottom:3px solid var(--primary);
     padding:1em;
     background:linear-gradient(30deg,
@@ -33,64 +33,65 @@ header{
         var(--accent) 100%);
 }
 
-header img{
-    float:left;
-    margin-right:1em;
+header img {
     width:66px;
+    margin-right:1em;
 }
 
-header h2{
+header h2 {
     font-size:175%;
     color:var(--primary);
 }
 
-header h3{
+header h3 {
     font-size:130%;
     font-style:italic;
 }
 
 /* GRID LAYOUT */
-.grid{
+.grid {
     display:grid;
     grid-template-columns: repeat(12, 1fr);
     gap:1em;
     padding:1em;
 }
 
-/* LEFT ASIDE (4 columns) */
-.left{
+/* LEFT COLUMN (3 columns) */
+.left {
     grid-column: 1 / span 3;
 }
 
-/* MIDDLE SECTION (6 columns) */
-.middle{
+/* MIDDLE COLUMN (6 columns) */
+.middle {
     grid-column: 4 / span 6;
 }
 
-/* RIGHT ASIDE (3 columns) */
-.right{
+/* RIGHT COLUMN (3 columns) */
+.right {
     grid-column: 10 / span 3;
 }
 
-/* CONTENT STYLES */
-aside h2, section h2{
+/* REMOVE FLOATS COMPLETELY */
+article img {
+    width:225px;
+    border:1px solid var(--dark);
+    display:block;
+    margin: 0 auto 1em auto; /* center inside column */
+}
+
+/* TEXT COLORS */
+aside h2,
+section h2 {
     color:var(--primary);
 }
 
-article img{
-    float:right;
-    width:225px;
-    margin-left:1em;
-    border:1px solid var(--dark);
-}
-
 /* FOOTER */
-footer{
+footer {
     background:var(--primary);
     padding:1em;
 }
 
-footer p{
+footer p {
     text-align:center;
     color:white;
 }
