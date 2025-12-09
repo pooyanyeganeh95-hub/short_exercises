@@ -31,51 +31,85 @@ header {
         var(--light) 50%,
         var(--light-accent) 75%,
         var(--accent) 100%);
+    display:flex;
+    align-items:center;
+    gap:1em;
 }
+
 header img {
-    float:left;
-    margin-right:1em;
+    width:66px;
 }
+
 header h2 {
     font-size:175%;
     color:var(--primary);
 }
+
 header h3 {
     font-size:130%;
     font-style:italic;
 }
 
-/* GRID */
+/* GRID LAYOUT */
 .grid {
     display:grid;
     grid-template-columns: repeat(12, 1fr);
-    gap:1em;
     padding:1em;
+    gap:1em;
 }
 
-/* COLUMN AREAS */
-.left   { grid-column: 1 / span 3; }
-.middle { grid-column: 4 / span 6; }
-.right  { grid-column: 10 / span 3; }
-
-/* IMAGES INSIDE ARTICLE */
-article img {
-    width:225px;
-    border:1px solid var(--dark);
-    display:block;
-    margin:0 auto 1em auto;
+/* LEFT COLUMN (3 columns) */
+.left {
+    grid-column: 1 / span 3;
 }
 
+/* MIDDLE COLUMN (6 columns) */
+.middle {
+    grid-column: 4 / span 6;
+}
+
+/* RIGHT COLUMN (3 columns) */
+.right {
+    grid-column: 10 / span 3;
+}
+
+/* TEXT COLORS */
 aside h2,
 section h2 {
     color:var(--primary);
+}
+
+/* ARTICLE IMAGE */
+.middle article img {
+    width:225px;
+    border:1px solid var(--dark);
+    display:block;
+    margin: .5em auto;
+}
+
+/* LINES REQUIRED BY THE EXERCISE */
+
+/* line under Speaker of the Month */
+.middle h1 {
+    border-bottom:3px solid var(--primary);
+    padding-bottom:.3em;
+    margin-bottom:.7em;
+}
+
+/* line above Our Ticket Packages */
+.middle h2:nth-of-type(3) {
+    border-top:3px solid var(--primary);
+    padding-top:.5em;
+    margin-top:1em;
 }
 
 /* FOOTER */
 footer {
     background:var(--primary);
     padding:1em;
+    margin-top:1em;
 }
+
 footer p {
     text-align:center;
     color:white;
